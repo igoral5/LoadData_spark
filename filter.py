@@ -17,7 +17,7 @@ parser.add_argument('input', nargs=1, help='Input file(s) in hdfs')
 parser.add_argument('output', nargs=1, help='Output directory in hdfs')
 args = parser.parse_args()
 
-def create_validate(permitted_types = set(['pay', 'rec'])):
+def create_validate(permitted_types = set([u'pay', u'rec'])):
     def validate(line):
         try:
             inp =  StringIO(line)
@@ -30,7 +30,7 @@ def create_validate(permitted_types = set(['pay', 'rec'])):
             id = int(fields[0][0])  # @ReservedAssignment
             if id < 0:
                 return False
-            if fields[0][1] not in permitted_types:
+            if fields[0][1].lower() not in permitted_types:
                 return False
             value = int(fields[0][2])  # @UnusedVariable
             business_date = datetime.strptime(fields[0][3], '%Y-%m-%d')  # @UnusedVariable
