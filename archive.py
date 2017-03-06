@@ -28,7 +28,7 @@ def main():
     conf = SparkConf().setAppName('Archive')
     sc = SparkContext(conf=conf)
     rdd = sc.textFile(args.input[0])
-    rdd.saveAsHadoopFile(args.output[0], 'com.example.MultipleTextOutputFormatByKey')
+    rdd.map(split_key_value).saveAsHadoopFile(args.output[0], 'com.example.MultipleTextOutputFormatByKey')
 
 if __name__ == '__main__':
     main()
