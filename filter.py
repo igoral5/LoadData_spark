@@ -12,7 +12,7 @@ from StringIO import StringIO
 from datetime import datetime
 import argparse
 
-parser = argparse.ArgumentParser(description='Load data in Hadoop')
+parser = argparse.ArgumentParser(description='Filtering invalid entries')
 parser.add_argument('input', nargs=1, help='Input file(s) in hdfs')
 parser.add_argument('output', nargs=1, help='Output directory in hdfs')
 args = parser.parse_args()
