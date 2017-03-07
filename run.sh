@@ -17,14 +17,14 @@ if [ $? -eq 0 ]
 then
 	echo "Stage PreFilter OK"
 else
-	echo "Stage PreFilte FAILED"
+	echo "Stage PreFilter FAILED"
 	exit 1
 fi
 
 echo "Stage copy data from prefilter to staging"
 if hadoop fs -test -e staging
 then
-	echo "Remove exists direcoty staging"
+	echo "Remove exists directory staging"
 	hadoop fs -rm -R staging 
 	if [ $? -ne 0 ]
 	then
